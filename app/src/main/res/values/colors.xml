@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <color name="colorPrimary">#F16F6E</color>
+    <color name="colorPrimaryDark">#e75958</color>
+    <color name="colorAccent">#ffcc5c</color>
+    <integer-array name="contacts_text_background_colors">
+        <item>0xFF9C27B0</item>
+        <item>0xFFFF5722</item>
+        <item>0xFF3F51B5</item>
+        <item>0xFFDB4437</item>
+        <item>0xFFEF6C00</item>
+        <item>0xFF689F38</item>
+        <item>0xFF757575</item>
+        <item>0xFF0F9D58</item>
+        <item>0xFF3F51B5</item>
+        <item>0xFF0097A7</item>
+    </integer-array>
+    <!--++++++++++++++++++++-->
+    <!--listview item colors-->
+    <!--++++++++++++++++++++-->
+    <color name="listview_pressed">#FFdddddd</color>
+    <color name="listview_focused">#FF7dbcd3</color>
+    <color name="listview_checked">#FFededed</color>
+    <color name="actionbar_opacity">#33000000</color>
+    <color name="pinned_header_text">#FF3c3c3c</color>
+
+    <color name="colorGray">#495C67</color>
+    <color name="colorwhite">#fffefd</color>
+    <color name="colorblack">#534d47</color>
+    <color name="gray">#FFAEA3A3</color>
+    <color name="white">#ffffff</color>
+    <color name="colourgreen">#23be2d</color>
+    <color name="black">#FF101010</color>
+
+    <color name="accent">#EE7D00</color>
+    <color name="colorOrange">#F68159</color>
+    <color name="colorLightGray">#a6abae</color>
+    <color name="black_overlay">#66000000</color>
+
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorOfferTab">#3ca7ff</color>
+    <color name="colorOfferTabStatus">#3198ed</color>
+    <color name="colorStoreTab">#ff4a68</color>
+    <color name="colorStoreTabStatus">#ec3755</color>
+    <color name="colorProductTab">#a747f8</color>
+    <color name="colorProductTabStatus">#9936ec</color>
+    <color name="colorTextBlack">#212121</color>
+    <color name="colorsuccessGreen">#9bd25c</color>
+    <color name="colorBackroundWhite">#ffffff</color>
+    <color name="red_btn_bg_color">#e75e5e</color>
+    <color name="colorGrey">#f7f7f7</color>
+</resources>

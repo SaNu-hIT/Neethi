@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+
+        android:orientation="vertical">
+
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_margin="3dp"
+    android:background="@color/white"
+
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:elevation="5dp"
+        android:layout_margin="5dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:src="@drawable/salesman_new"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:layout_height="30dp" />
+            <com.example.work.cartapp.Adapter.MyTextViewMarven
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="15dp"
+                android:gravity="left|center"
+
+
+                android:text="CUSTOMER DETAILS"
+                android:textColor="#505151"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal">
+
+                <com.example.work.cartapp.Adapter.MyTextViewMarven
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Name"
+                    android:textSize="13dp" />
+
+                <com.example.work.cartapp.Adapter.MyEditTextMarwen
+                    android:id="@+id/edtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/background_item"
+                    android:layout_weight="0.5"
+                    android:padding="5dp"
+
+                    android:textSize="13dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal">
+
+                <com.example.work.cartapp.Adapter.MyTextViewMarven
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Phone"
+                    android:textSize="13dp" />
+
+                <com.example.work.cartapp.Adapter.MyEditTextMarwen
+                    android:id="@+id/edtPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/background_item"
+                    android:layout_weight="0.5"
+                    android:padding="5dp"
+                    android:inputType="phone"
+                    android:textSize="13dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal">
+
+                <com.example.work.cartapp.Adapter.MyTextViewMarven
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Email"
+                    android:textSize="13dp" />
+
+                <com.example.work.cartapp.Adapter.MyEditTextMarwen
+                    android:id="@+id/edtEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/background_item"
+                    android:layout_weight="0.5"
+                    android:padding="5dp"
+                    android:inputType="textEmailAddress"
+                    android:textSize="13dp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/btnAddd"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="5dp"
+            android:elevation="5dp"
+            android:textColor="#FFF"
+            android:src="@drawable/qr_code_scan"
+            android:textAllCaps="false" />
+
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/header_text_item"
+            android:visibility="gone"
+            android:layout_height="wrap_content">
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_margin="3dp"
+            android:background="@color/white"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:elevation="5dp"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+
+
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:src="@drawable/list_outlined_interface_button_of_three_items"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:layout_height="30dp" />
+
+            <com.example.work.cartapp.Adapter.MyTextViewMarven
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="15dp"
+                android:gravity="left"
+                android:text="ITEM DETAILS"
+                android:textColor="#505151"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_marginRight="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+        </android.support.v7.widget.CardView>
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:elevation="5dp"
+
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_margin="3dp"
+            android:background="@color/white"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:src="@drawable/point_of_service"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:layout_height="30dp" />
+
+                    <com.example.work.cartapp.Adapter.MyTextViewMarven
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="15dp"
+                        android:gravity="left"
+                        android:text="PAYMENT"
+                        android:textColor="#505151"
+                        android:textSize="13dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:id="@+id/payent_visibilty"
+                    android:orientation="vertical">
+
+
+
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+
+
+                        <com.example.work.cartapp.Adapter.MyTextViewMarven
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+
+                            android:text="CGST Total"
+                            android:textSize="13dp" />
+
+                        <com.example.work.cartapp.Adapter.MyEditTextMarwen
+                            android:id="@+id/CGST_Total"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/background_item"
+                            android:layout_weight="0.5"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:textSize="13dp" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <com.example.work.cartapp.Adapter.MyTextViewMarven
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="SGST Total"
+                            android:textSize="13dp" />
+
+                        <com.example.work.cartapp.Adapter.MyEditTextMarwen
+                            android:id="@+id/SGST_Total"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/background_item"
+                            android:layout_weight="0.5"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:textSize="13dp" />
+                    </LinearLayout>
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <com.example.work.cartapp.Adapter.MyTextViewMarven
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="IGST Total"
+                            android:textSize="13dp" />
+
+                        <com.example.work.cartapp.Adapter.MyEditTextMarwen
+                            android:id="@+id/IGST_Total"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/background_item"
+                            android:layout_weight="0.5"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:textSize="13dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <com.example.work.cartapp.Adapter.MyTextViewMarven
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="CESS Total"
+                            android:textSize="13dp" />
+
+                        <com.example.work.cartapp.Adapter.MyEditTextMarwen
+                            android:id="@+id/CESS_Total"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/background_item"
+                            android:layout_weight="0.5"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:textSize="13dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <com.example.work.cartapp.Adapter.MyTextViewMarven
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="GST Total"
+                            android:textSize="13dp" />
+
+                        <com.example.work.cartapp.Adapter.MyEditTextMarwen
+                            android:id="@+id/GST_Total"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/background_item"
+                            android:layout_weight="0.5"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:textSize="13dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <com.example.work.cartapp.Adapter.MyTextViewMarven
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Gross Value"
+                            android:textSize="13dp" />
+
+                        <com.example.work.cartapp.Adapter.MyEditTextMarwen
+                            android:id="@+id/TotalAmount"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/background_item"
+                            android:layout_weight="0.5"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:textSize="13dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <com.example.work.cartapp.Adapter.MyTextViewMarven
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="GrandTotal"
+                            android:textSize="13dp" />
+
+                        <com.example.work.cartapp.Adapter.MyEditTextMarwen
+                            android:id="@+id/Gradnd_Total"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:padding="5dp"
+                            android:background="@drawable/background_item"
+                            android:layout_weight="0.5"
+                            android:inputType="number"
+                            android:textSize="13dp" />
+                    </LinearLayout>
+
+
+                    <Button
+                        android:id="@+id/generateinvoice"
+                        android:background="#2b8f58"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="GENERATE INVOICE"
+                        android:textAllCaps="false"
+                        android:textColor="#FFF" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>
