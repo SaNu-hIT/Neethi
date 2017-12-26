@@ -70,6 +70,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
             }
         });
         holder.tvTitle.setText(valueFilterd.get(position).getCustomerName());
+        holder.datestring.setText("Date : "+valueFilterd.get(position).getSoldDateString());
         holder.tvPrice.setText(valueFilterd.get(position).getCustomerPhno());
 //        holder.Customer_Address.setText(mValues.get(position).getCustomerAddress());
         holder.tv_Rate.setText("₹ "+valueFilterd.get(position).getTotalOrder());
@@ -92,6 +93,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
         TextViewRobotoRegular tvTitle;
 
         AutofitTextViewCustomFont tvPrice;
+        TextViewRobotoRegular datestring;
         AutofitTextViewCustomFont tvCutOff;
         AutofitTextViewCustomFont tv_pOff;
         TextViewRobotoRegular tv_Rate;
@@ -108,6 +110,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
             tvTitle = (TextViewRobotoRegular) view.findViewById(R.id.tvTitle);
             tvCutOff = (AutofitTextViewCustomFont) view.findViewById(R.id.tvCutOff);
             tvPrice = (AutofitTextViewCustomFont) view.findViewById(R.id.tvPrice);
+            datestring = (TextViewRobotoRegular) view.findViewById(R.id.datestring);
             tv_pOff = (AutofitTextViewCustomFont) view.findViewById(R.id.tv_pOff);
             tv_Rate = (TextViewRobotoRegular) view.findViewById(R.id.tv_Rate);
             tv_Site = (TextViewRobotoRegular) view.findViewById(R.id.tv_Site);

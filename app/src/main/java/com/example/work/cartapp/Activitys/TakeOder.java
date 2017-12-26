@@ -62,7 +62,7 @@ public class TakeOder extends AppCompatActivity implements View.OnClickListener,
     ImageView btnAddd;
     TextView tv_ErrorMessage;
     SessionManager sessionManager;
-    EditText left_cl_axis, left_cl_cl, left_cl_sph, left_add_sph, left_n_va, left_n_axis, left_n_cyl, left_n_sph, left_d_va, left_d_axis, left_d_cyl, left_d_sph, right_cl_va, right_cl_axis, right_cl_cl, left_cl_va, right_cl_sph, right_add_sph, right_n_va, right_n_axis, right_d_cyl, right_n_cyl, right_n_sph, right_d_va, right_d_sph, right_d_axis, Gradnd_Total, TotalAmount, CESS_Total, IGST_Total, GST_Total, SGST_Total, edtName, CGST_Total, edtPhone, edtQuantity, edtPrice, edtEmail, edtCode, edtProductName, editDiscount;  // lenstype, llenscode
+    EditText left_cl_axis, left_cl_cl, left_cl_sph, left_add_sph, left_n_va, left_n_axis, left_n_cyl, left_n_sph, left_d_va, left_d_axis, left_d_cyl, left_d_sph, right_cl_va, right_cl_axis, right_cl_cl, left_cl_va, right_cl_sph, right_add_sph, right_n_va, right_n_axis, right_d_cyl, right_n_cyl, right_n_sph, right_d_va, right_d_sph, right_d_axis, Gradnd_Total, TotalAmount, CESS_Total, IGST_Total, GST_Total, SGST_Total, discuntamount_total,edtName, CGST_Total, edtPhone, edtQuantity, edtPrice, edtEmail, edtCode, edtProductName, editDiscount;  // lenstype, llenscode
     private ItemListAdapter categoruAdapter;
     private RecyclerView recyclerView;
     private ProgressDialog progressBar;
@@ -121,6 +121,7 @@ public class TakeOder extends AppCompatActivity implements View.OnClickListener,
         progressBar.setCancelable(false);
         edtName = (EditText) findViewById(R.id.edtName);
         edtPhone = (EditText) findViewById(R.id.edtPhone);
+        discuntamount_total = (EditText) findViewById(R.id.discuntamount_total);
         edtEmail = (EditText) findViewById(R.id.edtEmail);
         subtotal_total = (MyTextViewMarven) findViewById(R.id.subtotal_total);
         gst_total = (MyTextViewMarven) findViewById(R.id.gst_total);
@@ -2027,7 +2028,12 @@ public class TakeOder extends AppCompatActivity implements View.OnClickListener,
     public void OnSuccessSaveOrder(boolean stautus, String message) {
         progressBar.cancel();
 ClearAll();
-        Toast.makeText(this, ""+message, Toast.LENGTH_SHORT).show();
+
+Intent intent=new Intent(this,DetailsOfOrder.class);
+intent.putExtra("ids",message);
+startActivity(intent);
+finish();
+//        Toast.makeText(this, ""+message, Toast.LENGTH_SHORT).show();
     }
 
 
@@ -2035,5 +2041,9 @@ ClearAll();
     public void OnFailedSaveOrder(String message) {
         progressBar.cancel();
         Toast.makeText(this, ""+message, Toast.LENGTH_SHORT).show();
+    }
+
+    public void OnBackClick(View view) {
+        onBackPressed();
     }
 }

@@ -66,7 +66,10 @@
                 android:layout_marginRight="5dp"
 
                 android:orientation="horizontal">
-
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_weight="1"
+                    android:layout_margin="5dp">
 
                 <com.example.work.cartapp.Adapter.MyEditTextMarwen
                     android:id="@+id/edtProductName"
@@ -80,7 +83,11 @@
                     android:layout_marginRight="1dp"
                     android:hint="Lens For"
                     android:textSize="13dp" />
-
+                </android.support.design.widget.TextInputLayout>
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_weight="1"
+                    android:layout_margin="5dp">
 
                 <com.example.work.cartapp.Adapter.MyEditTextMarwen
                     android:id="@+id/edtCode"
@@ -94,7 +101,7 @@
                     android:layout_marginLeft="1dp"
                     android:inputType="number"
                     android:textSize="13dp" />
-
+                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -105,7 +112,10 @@
                 android:layout_marginRight="5dp"
                 android:orientation="horizontal">
 
-
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_weight="1"
+                    android:layout_margin="5dp">
                 <com.example.work.cartapp.Adapter.MyEditTextMarwen
                     android:id="@+id/edtPrice"
                     android:layout_width="match_parent"
@@ -117,8 +127,12 @@
                     android:hint="Price"
                     android:inputType="phone"
                     android:textSize="13dp" />
+                </android.support.design.widget.TextInputLayout>
 
-
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_weight="1"
+                    android:layout_margin="5dp">
                 <com.example.work.cartapp.Adapter.MyEditTextMarwen
                     android:id="@+id/edtQuantity"
                     android:layout_width="match_parent"
@@ -130,6 +144,7 @@
                     android:layout_marginLeft="1dp"
                     android:inputType="number"
                     android:textSize="13dp" />
+                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
 
@@ -141,7 +156,10 @@
                 android:layout_marginRight="5dp"
                 android:paddingBottom="20dp">
 
-
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_weight="1"
+                    android:layout_margin="5dp">
                 <com.example.work.cartapp.Adapter.MyEditTextMarwen
                     android:id="@+id/editDiscount"
                     android:layout_width="match_parent"
@@ -152,6 +170,7 @@
                     android:paddingLeft="9dp"
                     android:inputType="phone"
                     android:textSize="13dp" />
+                </android.support.design.widget.TextInputLayout>
 
 
             </LinearLayout>

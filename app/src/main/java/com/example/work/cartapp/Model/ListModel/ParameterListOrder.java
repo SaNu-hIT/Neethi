@@ -6,10 +6,10 @@ import com.google.gson.annotations.SerializedName;
 @SuppressWarnings("unused")
 public class ParameterListOrder {
 
-    @SerializedName("SalesOrderId")
+        @SerializedName("SalesOrderId")
     private Long mSalesOrderId;
 
-    @SerializedName("shopId")
+        @SerializedName("shopId")
     private Long shopId;
 
     public Long getShopId() {

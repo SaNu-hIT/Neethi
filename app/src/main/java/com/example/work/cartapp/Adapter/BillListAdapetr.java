@@ -46,16 +46,53 @@ public class BillListAdapetr extends RecyclerView.Adapter<BillListAdapetr.ViewHo
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         SalesOrderDetailsList cycle=catrecycles.get(position);
-        ItemsDetails itemdetils=cycle.getShopItemData().getItemsDetails();
-        holder.ItemName.setText(""+cycle.getShopItemData().getItemsDetails().getItemName());
-        holder.edtQuantity.setText(""+cycle.getQty());
-        holder.edtPrice.setText(""+cycle.getShopItemData().getItemsDetails().getSellingPrice());
-        holder.code.setText(""+itemdetils.getItemCode());
-        int ss=position+1;
-        holder.Itemone.setText("ITEM-"+ss);
+            ItemsDetails itemdetils=cycle.getShopItemData().getItemsDetails();
 
-        holder.Titalamount.setText(""+cycle.getTotalValue());
-        holder.discount.setText(""+cycle.getDiscountAmnt());
+
+        if (cycle.getItemId().equals("-1"))
+        {
+            holder.ItemName.setText(""+cycle.getShopItemData().getItemsDetails().getItemName());
+            holder.edtQuantity.setText(""+cycle.getQty());
+
+//                holder.edtPrice.setText(""+cycle.getShopItemData().getItemsDetails().getSellingPrice());
+
+
+
+
+                holder.edtPrice.setText(""+cycle.getRate());
+
+
+//            holder.code.setText(""+itemdetils.getItemCode());
+            int ss=position+1;
+            holder.Itemone.setText("ITEM-"+ss);
+            int i =position+1;
+            holder.number_id.setText(""+i);
+
+            holder.Titalamount.setText(""+cycle.getTotalValue());
+            holder.discount.setText(""+cycle.getDiscountAmnt());
+
+
+        }
+        else
+        {
+            holder.ItemName.setText(""+cycle.getShopItemData().getItemsDetails().getItemName());
+            holder.edtQuantity.setText(""+cycle.getQty());
+
+                holder.edtPrice.setText(""+cycle.getShopItemData().getItemsDetails().getSellingPrice());
+
+
+
+
+            holder.code.setText(""+itemdetils.getItemCode());
+            int ss=position+1;
+            holder.Itemone.setText("ITEM-"+ss);
+            int i =position+1;
+            holder.number_id.setText(""+i);
+
+            holder.Titalamount.setText(""+cycle.getTotalValue());
+            holder.discount.setText(""+cycle.getDiscountAmnt());
+
+        }
 
 
     }
@@ -68,6 +105,7 @@ public class BillListAdapetr extends RecyclerView.Adapter<BillListAdapetr.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView code;
         public TextView ItemName;
+        public TextView number_id;
         public TextView edtPrice;
         TextAquino Itemone;
         public TextView edtQuantity,textDiscount,Titalamount,discuntamount,discount,lensstyle,lenstype;
@@ -76,6 +114,7 @@ public class BillListAdapetr extends RecyclerView.Adapter<BillListAdapetr.ViewHo
         {
 
             super(itemView);
+            number_id=itemView.findViewById(R.id.number_id);
             code=itemView.findViewById(R.id.code);
             ItemName=itemView.findViewById(R.id.itemname);
             edtQuantity=itemView.findViewById(R.id.quantity);

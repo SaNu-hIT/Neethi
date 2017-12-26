@@ -25,6 +25,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -60,7 +61,7 @@ import okhttp3.ResponseBody;
 import static com.example.work.cartapp.Retrofit.ApiClient.BASE_URL;
 
 public class DetailsOfOrder extends AppCompatActivity implements OnHttpResponseOrderDetails, OnHttpResponseDownloadItem {
-TextView customername,address,phonenumber,shopemail,invoice_id,subtotal,CGST_Total,SGST_Total,IGST_Total,GST_Total,subtotal_full,discount;
+TextView customername,address,phonenumber,shopemail,shopmobile,date,invoice_id,subtotal,CGST_Total,SGST_Total,IGST_Total,GST_Total,subtotal_full,discount;
 RecyclerView recyclerView;
 BillListAdapetr billListAdapetr;
 NestedScrollView lnrh;
@@ -75,6 +76,7 @@ ImageView backclick;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_details_of_order);
         customername=findViewById(R.id.customername);
         this.setFinishOnTouchOutside(false);
@@ -102,8 +104,10 @@ ImageView backclick;
         invoice_id=findViewById(R.id.invoice_id);
         phonenumber=findViewById(R.id.phonenumber);
         subtotal=findViewById(R.id.subtotal);
+        date=findViewById(R.id.date);
         discount=findViewById(R.id.discount);
         shopaddress=findViewById(R.id.shopaddress);
+        shopmobile=findViewById(R.id.shopmobile);
 
         subtotal_full=findViewById(R.id.subtotal_full);
         CGST_Total=findViewById(R.id.CGST_Total);
@@ -255,8 +259,10 @@ progressBar.cancel();
 
         Log.e( "mData RESPO: ", ""+json);
         customername.setText(mData.getCustomerName());
+        invoice_id.setText(mData.getSalesOrderId());
         phonenumber.setText(mData.getCustomerPhno());
         address.setText(mData.getCustomerAddress());
+        date.setText(mData.getSoldDateString());
         subtotal.setText(mData.getGrandTotalOrder().toString());
         subtotal_full
                 .setText(mData.getTotalOrder().toString());
@@ -268,6 +274,7 @@ progressBar.cancel();
 //        CGST_Total.setText("CGST Total :"+mData.getCGSTTotal().toString());
         discount.setText(mData.getDiscountAmnt().toString());
         shopaddress.setText(mData.getShopDetails().getAddress());
+        shopmobile.setText(mData.getShopDetails().getPhoneNo());
         shopemail.setText(mData.getShopDetails().getEmail());
 
 //        SGST_Total.setText(mData.getSGSTTotalAmnt().toString());

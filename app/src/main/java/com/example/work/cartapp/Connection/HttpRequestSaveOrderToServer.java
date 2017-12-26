@@ -52,7 +52,7 @@ public class HttpRequestSaveOrderToServer {
 
 
 
-                        onHttpResponseUpdateNews.OnSuccessSaveOrder(response.body().getSuccess(), response.body().getMessage());
+                        onHttpResponseUpdateNews.OnSuccessSaveOrder(response.body().getSuccess(), response.body().getData().getSalesOrderId().toString());
                     } else {
                         onHttpResponseUpdateNews.OnFailedSaveOrder(response.body().getMessage());
                     }

@@ -29,7 +29,7 @@
 
                 android:text="ADD FRAME"
                 android:textColor="#505151"
-                android:textSize="23dp"
+                android:textSize="25dp"
                 android:textStyle="bold" />
             <com.example.work.cartapp.Adapter.MyTextViewMarven
                 android:layout_width="match_parent"
@@ -50,22 +50,21 @@
 
                 <Spinner
                     android:layout_width="match_parent"
-                    android:layout_margin="5dp"
+                    android:layout_margin="3dp"
                     android:layout_weight="1"
+
                     android:id="@+id/spinner_item"
                     android:layout_height="match_parent"></Spinner>
+
                 <Button
                     android:id="@+id/btnScan"
+                    style="@style/Base.Widget.AppCompat.Button.Colored"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="right"
-                    android:layout_weight="1"
-                    android:layout_margin="5dp"
+                    android:layout_weight="2"
 
-                    android:layout_marginBottom="3dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="10dp"
-                    android:background="#2b8f58"
+
                     android:text="SCAN QR"
 
                     android:textAllCaps="false"
@@ -81,7 +80,10 @@
 
                 android:orientation="horizontal">
 
-
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_weight="1"
+                    android:layout_margin="5dp">
                 <com.example.work.cartapp.Adapter.MyEditTextMarwen
                     android:id="@+id/edtProductName"
                     android:layout_width="match_parent"
@@ -92,8 +94,12 @@
                     android:layout_marginRight="1dp"
                     android:hint="Product Name"
                     android:textSize="13dp" />
+                </android.support.design.widget.TextInputLayout>
 
-
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_weight="1"
+                    android:layout_margin="5dp">
                 <com.example.work.cartapp.Adapter.MyEditTextMarwen
                     android:id="@+id/edtCode"
                     android:layout_width="match_parent"
@@ -105,6 +111,7 @@
                     android:layout_marginLeft="1dp"
                     android:inputType="number"
                     android:textSize="13dp" />
+                </android.support.design.widget.TextInputLayout>
 
             </LinearLayout>
 
@@ -116,7 +123,10 @@
                 android:layout_marginRight="5dp"
                 android:orientation="horizontal">
 
-
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_weight="1"
+                    android:layout_margin="5dp">
                 <com.example.work.cartapp.Adapter.MyEditTextMarwen
                     android:id="@+id/edtPrice"
                     android:layout_width="match_parent"
@@ -128,8 +138,11 @@
                     android:hint="Price"
                     android:inputType="numberDecimal"
                     android:textSize="13dp" />
-
-
+                </android.support.design.widget.TextInputLayout>
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_weight="1"
+                    android:layout_margin="5dp">
                 <com.example.work.cartapp.Adapter.MyEditTextMarwen
                     android:id="@+id/edtQuantity"
                     android:layout_width="match_parent"
@@ -141,6 +154,7 @@
                     android:layout_marginLeft="1dp"
                     android:inputType="number"
                     android:textSize="13dp" />
+                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
 
@@ -153,7 +167,10 @@
                 android:layout_marginRight="5dp"
                 android:paddingBottom="20dp">
 
-
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_weight="1"
+                    android:layout_margin="5dp">
                 <com.example.work.cartapp.Adapter.MyEditTextMarwen
                     android:id="@+id/editDiscount"
                     android:layout_width="match_parent"
@@ -164,6 +181,7 @@
                     android:paddingLeft="9dp"
                     android:inputType="numberDecimal"
                     android:textSize="13dp" />
+                </android.support.design.widget.TextInputLayout>
 
 
             </LinearLayout>
@@ -1092,9 +1110,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right|center"
         android:layout_margin="10dp"
-        android:background="#2b8f58"
-        android:gravity="center"
 
+        android:gravity="center"
+style="@style/Base.Widget.AppCompat.Button.Colored"
         android:text="ADD ITEM"
         android:layout_alignParentBottom="true"
         android:textAllCaps="false"

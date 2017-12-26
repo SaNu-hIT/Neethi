@@ -21,11 +21,99 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:paddingBottom="8dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp">
+                <com.example.work.cartapp.ExternalLib.TextViewRobotoRegular
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="start"
+           android:visibility="invisible"
+                    android:textColor="@color/colorBlack"
+                    android:text="Date"
+                    android:textSize="10dp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="8dp"
+                    android:layout_gravity="right"
+                    android:paddingRight="2dp"
+                    android:paddingTop="5dp">
+
+
+                    <com.example.work.cartapp.ExternalLib.TextViewRobotoRegular
+                        android:id="@+id/datestring"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="#1a1919"
+                        android:textSize="10dp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:paddingLeft="4dp"
+                        android:visibility="invisible"
+                        android:src="@drawable/ic_rate_star_button" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:background="@drawable/round_grey"
+                    android:gravity="right"
+                    android:visibility="gone"
+                    android:orientation="horizontal"
+                    android:id="@+id/stock_id"
+
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp">
+
+                    <com.example.work.cartapp.ExternalLib.TextViewRobotoRegular
+                        android:id="@+id/tv_Site"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="#FFF"
+                        android:textSize="10dp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/img_IconLog"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:visibility="gone"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:paddingLeft="4dp"
+                        />
+                </LinearLayout>
+            </FrameLayout>
 
             <ImageView
                 android:id="@+id/itemImage"
                 android:layout_width="169dp"
                 android:layout_height="149dp"
+                android:visibility="gone"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="5dp"
                 android:src="@drawable/testnewitem"
@@ -43,10 +131,11 @@
                 android:layout_marginRight="10dp"
                 android:ellipsize="end"
                 android:gravity="left"
+                android:textStyle="bold"
                 android:maxLines="1"
-                android:text=""
+                android:text="Mr jino shaji"
                 android:textColor="@color/colorTextBlack"
-                android:textSize="13dp" />
+                android:textSize="15dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -62,13 +151,13 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:paddingLeft="8dp"
+                    android:paddingLeft="10dp"
                     android:paddingRight="2dp"
                     android:singleLine="true"
-                    android:text=""
+                    android:text="Mr jino shaji new"
                     android:textColor="#0d0d0d"
                     android:textSize="12dp"
-                    android:textStyle="bold"
+
                     autofit:minTextSize="10dp" />
 
                 <com.example.work.cartapp.ExternalLib.AutofitTextViewCustomFont
