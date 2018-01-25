@@ -72,7 +72,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
         holder.tvTitle.setText(valueFilterd.get(position).getCustomerName());
         holder.datestring.setText("Date : "+valueFilterd.get(position).getSoldDateString());
         holder.tvPrice.setText(valueFilterd.get(position).getCustomerPhno());
-//        holder.Customer_Address.setText(mValues.get(position).getCustomerAddress());
+//        holder.Customer_Address.setText(mValues.get(position).getSalesOrderDetailsList().);
         holder.tv_Rate.setText("₹ "+valueFilterd.get(position).getTotalOrder());
 
 

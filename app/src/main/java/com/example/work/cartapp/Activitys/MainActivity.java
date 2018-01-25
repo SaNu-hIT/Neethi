@@ -21,14 +21,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.example.work.cartapp.Extras.ExternLib.PassEvent;
 import com.example.work.cartapp.Fragments.FirstFragment;
 import com.example.work.cartapp.Fragments.ItemListFragment;
 import com.example.work.cartapp.Fragments.OrderListFragemnt;
+
 import com.example.work.cartapp.R;
 import com.example.work.cartapp.Extras.SessionManager.SessionManager;
 import com.example.work.cartapp.Extras.dummy.DummyContent;
+
 import com.squareup.otto.Subscribe;
+
+
+
+import io.realm.Realm;
 
 public class MainActivity extends AppCompatActivity implements ItemListFragment.OnListFragmentInteractionListener, OrderListFragemnt.OnListFragmentInteractionListener {
     SessionManager sessionManager;
@@ -68,10 +75,14 @@ public class MainActivity extends AppCompatActivity implements ItemListFragment.
         Toast.makeText(this, "new" + event.getDataa(), Toast.LENGTH_SHORT).show();
     }
 
+    Realm realm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+         realm = Realm.getDefaultInstance();
+
+
         if (ActivityCompat.checkSelfPermission(this,
                 android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.CAMERA}, 1);
@@ -112,6 +123,8 @@ public class MainActivity extends AppCompatActivity implements ItemListFragment.
         }
 
 
+
+
     }
 
     @Override
@@ -126,6 +139,14 @@ public class MainActivity extends AppCompatActivity implements ItemListFragment.
         intent.putExtra("ids", positon);
         startActivity(intent);
     }
+
+
+
+
+
+
+
+
 
     private class MyPagerAdapter extends FragmentPagerAdapter {
 

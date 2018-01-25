@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="com.doomonafireball.betterpickers:library-1.5.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-1.5.2.aar/c59c34428663181cc9ac3a249f5cfe3b/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-1.5.2.aar/c59c34428663181cc9ac3a249f5cfe3b/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.doomonafireball.betterpickers/library/1.5.2/9ecf253f63f8506ddc9628f2aa3a69a049897f69/library-1.5.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

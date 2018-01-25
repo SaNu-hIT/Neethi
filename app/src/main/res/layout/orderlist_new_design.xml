@@ -29,6 +29,10 @@
                 android:paddingBottom="8dp"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp">
+
+
+
+
                 <com.example.work.cartapp.ExternalLib.TextViewRobotoRegular
 
                     android:layout_width="wrap_content"
@@ -46,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:paddingBottom="5dp"
-                    android:paddingLeft="8dp"
+
                     android:layout_gravity="right"
                     android:paddingRight="2dp"
                     android:paddingTop="5dp">
@@ -113,7 +117,7 @@
                 android:id="@+id/itemImage"
                 android:layout_width="169dp"
                 android:layout_height="149dp"
-                android:visibility="gone"
+
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="5dp"
                 android:src="@drawable/testnewitem"
@@ -136,6 +140,9 @@
                 android:text="Mr jino shaji"
                 android:textColor="@color/colorTextBlack"
                 android:textSize="15dp" />
+
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -206,7 +213,7 @@
                     android:layout_gravity="center"
                     android:gravity="start"
                     android:textColor="@color/colorBlack"
-                    android:text="Amount Payed :"
+                    android:text="Total :"
                     android:textSize="10dp"
                     android:textStyle="bold" />
 

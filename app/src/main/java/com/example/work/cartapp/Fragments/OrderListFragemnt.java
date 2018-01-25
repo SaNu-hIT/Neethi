@@ -38,11 +38,11 @@ public class OrderListFragemnt extends Fragment implements OnHttpResponseListOrd
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
-    private int mColumnCount = 1;
+    private int mColumnCount = 2;
     private OnListFragmentInteractionListener mListener;
     List<Datum> mDat;
     private ProgressDialog progressBar;
-    private SwipeRefreshLayout mySwipeRefreshLayout;
+//    private SwipeRefreshLayout mySwipeRefreshLayout;
     private SearchView searchView;
 
     /**
@@ -84,7 +84,7 @@ SessionManager sessionManager;
         searchView=view.findViewById(R.id.search);
         progressBar.setCancelable(false);
 
-        mySwipeRefreshLayout=view.findViewById(R.id.swiperefresh);
+//        mySwipeRefreshLayout=view.findViewById(R.id.swiperefresh);
 
   getServer();
         // Set the adapter
@@ -98,18 +98,18 @@ SessionManager sessionManager;
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
             recyclerView.setAdapter(new OrderListAdapter(mDat, mListener));
-        mySwipeRefreshLayout.setOnRefreshListener(
-                new SwipeRefreshLayout.OnRefreshListener() {
-                    @Override
-                    public void onRefresh() {
-
-                        getServer();
-                        // This method performs the actual data-refresh operation.
-                        // The method calls setRefreshing(false) when it's finished.
-
-                    }
-                }
-        );
+//        mySwipeRefreshLayout.setOnRefreshListener(
+//                new SwipeRefreshLayout.OnRefreshListener() {
+//                    @Override
+//                    public void onRefresh() {
+//
+//                        getServer();
+//                        // This method performs the actual data-refresh operation.
+//                        // The method calls setRefreshing(false) when it's finished.
+//
+//                    }
+//                }
+//        );
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -163,7 +163,7 @@ SessionManager sessionManager;
     @Override
     public void OnSuccessListOrder(String message, List<Datum> mData) {
         progressBar.cancel();
-        mySwipeRefreshLayout.setRefreshing(false);
+//        mySwipeRefreshLayout.setRefreshing(false);
         orderListAdapter=new OrderListAdapter(mData, mListener);
         recyclerView.setAdapter(orderListAdapter);
 
@@ -173,7 +173,7 @@ SessionManager sessionManager;
     @Override
     public void OnFailedListOrder(String message) {
         progressBar.cancel();
-        mySwipeRefreshLayout.setRefreshing(false);
+//        mySwipeRefreshLayout.setRefreshing(false);
         Snackbar.make(getView(), ""+message, Snackbar.LENGTH_INDEFINITE)
                 .setAction("TryAgain", null).show();
 

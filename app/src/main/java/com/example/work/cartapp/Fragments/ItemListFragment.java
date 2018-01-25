@@ -45,7 +45,7 @@ public class ItemListFragment extends Fragment implements OnHttpResponsegetListI
     private OnListFragmentInteractionListener mListener;
 List<Datum> data;
     private ProgressDialog progressBar;
-    private SwipeRefreshLayout mySwipeRefreshLayout;
+//    private SwipeRefreshLayout mySwipeRefreshLayout;
     private SearchView searchView;
 
     /**
@@ -82,7 +82,7 @@ List<Datum> data;
         progressBar.setMessage("Loading...");
         progressBar.setCancelable(false);
 
-        mySwipeRefreshLayout=view.findViewById(R.id.swiperefresh);
+//        mySwipeRefreshLayout=view.findViewById(R.id.swiperefresh);
         getDataFromServer();
         searchView=view.findViewById(R.id.search);
         recyclerView=view.findViewById(R.id.list);
@@ -96,18 +96,18 @@ List<Datum> data;
             }
 
 
-        mySwipeRefreshLayout.setOnRefreshListener(
-                new SwipeRefreshLayout.OnRefreshListener() {
-                    @Override
-                    public void onRefresh() {
-
-                        getDataFromServer();
-                        // This method performs the actual data-refresh operation.
-                        // The method calls setRefreshing(false) when it's finished.
-
-                    }
-                }
-        );
+//        mySwipeRefreshLayout.setOnRefreshListener(
+//                new SwipeRefreshLayout.OnRefreshListener() {
+//                    @Override
+//                    public void onRefresh() {
+//
+//                        getDataFromServer();
+//                        // This method performs the actual data-refresh operation.
+//                        // The method calls setRefreshing(false) when it's finished.
+//
+//                    }
+//                }
+//        );
 
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -134,9 +134,6 @@ List<Datum> data;
         SessionManager sessionManager=new SessionManager(getActivity());
         Long shopid=sessionManager.getUserId();
 
-
-        HttpRequestForGetListItem httpRequestForGetListItem=new HttpRequestForGetListItem(this);
-//        httpRequestForGetListItem.getEvents("");
 
 
         GetListItembyShopmodel getListItembyShopmodel=new GetListItembyShopmodel();
@@ -207,13 +204,13 @@ List<Datum> data;
         myItemRecyclerViewAdapter=new MyItemRecyclerViewAdapter(mData, mListener);
         recyclerView.setAdapter(myItemRecyclerViewAdapter);
         progressBar.cancel();
-        mySwipeRefreshLayout.setRefreshing(false);
+//        mySwipeRefreshLayout.setRefreshing(false);
     }
 
     @Override
     public void OnFailedListItemByShop(String message) {
         progressBar.cancel();
-        mySwipeRefreshLayout.setRefreshing(false);
+//        mySwipeRefreshLayout.setRefreshing(false);
         Snackbar.make(getView(), ""+message, Snackbar.LENGTH_LONG)
                 .setAction("TryAgain", null).show();
 

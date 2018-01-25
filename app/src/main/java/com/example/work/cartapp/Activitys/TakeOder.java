@@ -9,7 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -81,6 +83,10 @@ public class TakeOder extends AppCompatActivity implements View.OnClickListener,
     private ArrayList<String> listItemName;
     private ArrayList<String> listItemCode;
     private EditText total_lens;
+    private EditText right_sph,right_cyl,right_axis,right_va,left_sph,left__cyl,left_axis ,left_va ;
+
+
+
     @Override
     public void onResume() {
         super.onResume();
@@ -201,6 +207,7 @@ public class TakeOder extends AppCompatActivity implements View.OnClickListener,
         progressBar.show();
         Gson gson = new Gson();
         String json = gson.toJson(saveDataBeanNew);
+        Log.e( "SaveDataToApi: ",""+json );
         int s = saveDataBeanNew.getSalesOrderDetailsList().size();
 
         HttpRequestSaveOrderToServer httpRequestSaveOrderToServer = new HttpRequestSaveOrderToServer(this);
@@ -909,6 +916,290 @@ public class TakeOder extends AppCompatActivity implements View.OnClickListener,
 
 
     }
+    private void showDialogOforederLens(String s) {
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.lensandframeonly);
+        dialog.setTitle("NEETHI");
+        edtCode = (EditText) dialog.findViewById(R.id.edtCode);
+        edtPrice = (EditText) dialog.findViewById(R.id.edtPrice);
+        editDiscount = (EditText) dialog.findViewById(R.id.editDiscount);
+        edtProductName = (EditText) dialog.findViewById(R.id.edtProductName);
+        edtQuantity = (EditText) dialog.findViewById(R.id.edtQuantity);
+
+        right_sph = (EditText) dialog.findViewById(R.id.right_sph);
+        right_cyl = (EditText) dialog.findViewById(R.id.right_cyl);
+        right_axis = (EditText) dialog.findViewById(R.id.right_axis);
+        right_va = (EditText) dialog.findViewById(R.id.right_va);
+        left_sph = (EditText) dialog.findViewById(R.id.left_sph);
+        left__cyl = (EditText) dialog.findViewById(R.id.left__cyl);
+        left_axis = (EditText) dialog.findViewById(R.id.left_axis);
+        left_va = (EditText) dialog.findViewById(R.id.left_va);
+
+
+
+        btnAddItem = (Button) dialog.findViewById(R.id.btnAddItem);
+
+//        total_lens = (EditText) dialog.findViewById(R.id.total_lens);
+
+//        left_cl_axis.setOnClickListener(this);
+
+        editDiscount.setText("0");
+//        String lensfor_string = lensfor.getSelectedItem().toString();
+//        String lenstype_string = lenstype.getSelectedItem().toString();
+
+        btnAddItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                String right_sph_string = right_sph.getText().toString();
+                String right_cyl_string = right_cyl.getText().toString();
+                String right_axis_string = right_axis.getText().toString();
+                String right_va_string = right_va.getText().toString();
+                String left_sph_string = left_sph.getText().toString();
+                String left__cyl_string = left__cyl.getText().toString();
+                String left_axis_string = left_axis.getText().toString();
+                String left_va_string = left_va.getText().toString();
+
+
+
+
+                String edtCode_string = edtCode.getText().toString();
+                String edtProductName_string = edtCode_string;
+                String edtPrice_string = edtPrice.getText().toString();
+                String editDiscount_string = editDiscount.getText().toString();
+                String edtQuantity_string = edtQuantity.getText().toString();
+                if (validate(edtProductName_string, edtCode_string, edtPrice_string, editDiscount_string, edtQuantity_string, right_sph_string
+                        , right_cyl_string,
+                        right_axis_string,
+                        right_va_string, left_sph_string, left__cyl_string, left_axis_string,left_va_string)) {
+                    Long price = Long.valueOf(edtPrice_string);
+                    Long qty = Long.valueOf(edtQuantity_string);
+                    Long dsk = Long.valueOf(editDiscount_string);
+
+                    Long amount = price * qty;
+
+                    double qunatity = Double.parseDouble(edtQuantity_string);
+                    double discountedamount = price * dsk / 100;
+                    double actualprice = price - discountedamount;
+                    double totaldiscount = discountedamount * qunatity;
+
+
+
+
+                    AddItem(edtProductName_string, edtQuantity_string, editDiscount_string, edtPrice_string, edtCode_string,
+                            right_sph_string, right_axis_string, "0"
+                            , right_va_string, "0", right_cyl_string,
+                            "", "0", "0",
+                            "0", "0", "0",
+                            left_sph_string, left__cyl_string, left_axis_string,
+                            left_va_string, "0", "0",
+                            "0", "0", amount, "0",
+                            "0", "0", "0",
+                            "0", "0");
+
+
+                    if (right_sph_string.equals("")) {
+                        right_sph_string = "0";
+                    }
+                    if (right_axis_string.equals("")) {
+                        right_axis_string = "0";
+                    }
+                    if (right_cyl_string.equals("")) {
+                        right_cyl_string = "0";
+                    }
+                    if (right_va_string.equals("")) {
+                        right_va_string = "0";
+                    }
+                    if (left_sph_string.equals("")) {
+                        left_sph_string = "0";
+                    }
+                    if (left__cyl_string.equals("")) {
+                        left__cyl_string = "0";
+                    }
+                    if (left_axis_string.equals("")) {
+                        left_axis_string = "0";
+                    }
+                    if (left_va_string.equals("")) {
+                        left_va_string = "0";
+                    }
+//                    if (left_cl_sph_string.equals("")) {
+//                        left_cl_sph_string = "0";
+//                    }
+//                    if (left_add_sph_string.equals("")) {
+//                        left_add_sph_string = "0";
+//                    }
+//                    if (left_n_va_string.equals("")) {
+//                        left_n_va_string = "0";
+//                    }
+//                    if (left_n_axis_string.equals("")) {
+//                        left_n_axis_string = "0";
+//                    }
+//                    if (left_n_cyl_string.equals("")) {
+//                        left_n_cyl_string = "0";
+//                    }
+//
+//
+//                    if (left_n_sph_string.equals("")) {
+//                        left_n_sph_string = "0";
+//                    }
+//
+//                    if (left_d_va_string.equals("")) {
+//                        left_d_va_string = "0";
+//                    }
+//                    if (left_d_axis_string.equals("")) {
+//                        left_d_axis_string = "0";
+//                    }
+//                    if (right_cl_sph_string.equals("")) {
+//                        right_cl_sph_string = "0";
+//                    }
+//                    if (right_add_sph_string.equals("")) {
+//                        right_add_sph_string = "0";
+//                    }
+//                    if (right_n_va_string.equals("")) {
+//                        right_n_va_string = "0";
+//                    }
+//
+//                    if (right_n_axis_string.equals("")) {
+//                        right_n_axis_string = "0";
+//                    }
+//
+//
+//                    if (right_n_sph_string.equals("")) {
+//                        right_n_sph_string = "0";
+//                    }
+//                    if (right_d_cyl_string.equals("")) {
+//                        right_d_cyl_string = "0";
+//                    }
+//
+//
+//                    if (right_d_va_string.equals("")) {
+//                        right_d_va_string = "0";
+//                    }
+//
+//                    if (right_n_cyl_string.equals("")) {
+//                        right_n_cyl_string = "0";
+//                    }
+//
+//
+//                    if (right_d_sph_string.equals("")) {
+//                        right_d_sph_string = "0";
+//                    }
+//                    if (right_d_axis_string.equals("")) {
+//                        right_d_axis_string = "0";
+//                    }
+
+
+                    SalesOrderDetailsList salesOrderDetailsList = new SalesOrderDetailsList();
+                    salesOrderDetailsList.setSalesId(Long.valueOf(0));
+                    salesOrderDetailsList.setSalesOrderId(Long.valueOf(0));
+
+                    salesOrderDetailsList.setItemId(Long.valueOf(-1));
+
+
+                    salesOrderDetailsList.setQty(Long.valueOf(edtQuantity_string));
+                    salesOrderDetailsList.setRate(Long.valueOf(edtPrice_string));
+                    salesOrderDetailsList.setTotalValue(Long.valueOf(amount));
+
+                    salesOrderDetailsList.setCGST(Long.valueOf(0));
+                    salesOrderDetailsList.setSGST(Long.valueOf(0));
+                    salesOrderDetailsList.setIGST(Long.valueOf(0));
+                    salesOrderDetailsList.setCESS(Long.valueOf(0));
+
+
+                    salesOrderDetailsList.setDiscount(Long.valueOf(editDiscount_string));
+
+                    salesOrderDetailsList.setTotalTaxableValue(Long.valueOf("0"));
+//                    salesOrderDetailsList.setTotalValue(Long.valueOf(0));
+
+
+                    salesOrderDetailsList.setRightDSph(Long.valueOf(right_sph_string));
+
+                    salesOrderDetailsList.setRightDCyl(Long.valueOf(right_cyl_string));
+
+                    salesOrderDetailsList.setRightDAxis(Long.valueOf(right_axis_string));
+
+                    salesOrderDetailsList.setRightDVa(Long.valueOf(right_va_string));
+                    salesOrderDetailsList.setLeftDSph(Long.valueOf(left_sph_string));
+
+
+                    salesOrderDetailsList.setLeftDCyl(Long.valueOf(left__cyl_string));
+
+
+                    salesOrderDetailsList.setLeftDAxis(Long.valueOf(left_axis_string));
+                    salesOrderDetailsList.setLeftDVa(Long.valueOf(left_va_string));
+
+
+
+//
+//
+                    salesOrderDetailsList.setRightNSph(Long.valueOf("0"));
+
+
+                    salesOrderDetailsList.setRightNCyl(Long.valueOf("0"));
+                    salesOrderDetailsList.setRightNAxis(Long.valueOf("0"));
+
+
+                    salesOrderDetailsList.setRightNVa(Long.valueOf("0"));
+                    salesOrderDetailsList.setRightAddSph(Long.valueOf("0"));
+
+
+                    salesOrderDetailsList.setRightClSph(Long.valueOf("0"));
+                    salesOrderDetailsList.setRightClCl(Long.valueOf("0"));
+                    salesOrderDetailsList.setRightClAxis(Long.valueOf("0"));
+                    salesOrderDetailsList.setRightClVa(Long.valueOf("0"));
+                    salesOrderDetailsList.setLeftDSph(Long.valueOf("0"));
+
+
+                    salesOrderDetailsList.setLeftDCyl(Long.valueOf("0"));
+
+
+                    salesOrderDetailsList.setLeftDAxis(Long.valueOf("0"));
+                    salesOrderDetailsList.setLeftDVa(Long.valueOf("0"));
+                    salesOrderDetailsList.setLeftNSph(Long.valueOf("0"));
+                    salesOrderDetailsList.setLeftNCyl(Long.valueOf("0"));
+
+
+                    salesOrderDetailsList.setLeftNAxis(Long.valueOf("0"));
+                    salesOrderDetailsList.setLeftNVa(Long.valueOf("0"));
+
+
+                    salesOrderDetailsList.setLeftAddSph(Long.valueOf("0"));
+                    salesOrderDetailsList.setLeftClSph(Long.valueOf("0"));
+                    salesOrderDetailsList.setLeftClCl(Long.valueOf("0"));
+
+
+                    salesOrderDetailsList.setLeftClAxis(Long.valueOf("0"));
+                    salesOrderDetailsList.setLeftClVa(Long.valueOf("0"));
+//                    salesOrderDetailsList.setDiscount((long) discountedamount);
+
+
+
+                    salesOrderDetailsList.setLensFor(edtProductName_string);
+                    salesOrderDetailsList.setLensType(edtCode_string);
+
+
+                    listSalesOrderDetailsList_new.add(salesOrderDetailsList);
+
+                    dialog.dismiss();
+
+                }
+
+
+            }
+        });
+
+
+        dialog.show();
+        Window window = dialog.getWindow();
+        window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+
+
+    }
+
+    private boolean validate(String edtProductName_string, String edtCode_string, String edtPrice_string, String editDiscount_string, String edtQuantity_string, String right_sph_string, String right_cyl_string, String right_axis_string, String right_va_string, String left_sph_string, String left__cyl_string, String left_axis_string, String left_va_string) {
+   return true;
+    }
 
     private void setSpinnerForLensTypeAndLensfor() {
 
@@ -931,10 +1222,10 @@ public class TakeOder extends AppCompatActivity implements View.OnClickListener,
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, listLensfor);
 //set the spinners adapter to the previously created one.
-        lensfor.setAdapter(adapter);
+//        lensfor.setAdapter(adapter);
         ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, listlenstype);
 //set the spinners adapter to the previously created one.
-        lenstype.setAdapter(adapter1);
+//        lenstype.setAdapter(adapter1);
 
 
     }
@@ -1478,7 +1769,8 @@ public class TakeOder extends AppCompatActivity implements View.OnClickListener,
                 if (id == R.id.lens) {
 
 
-                    showDialogOforederLens();
+//                    showDialogOforederLens();
+                    showDialogOforederLens("new");
 //                    Intent intent = new Intent(this, AddFrameActivity.class);
 //                    intent.putExtra("CUSTOMER_DETAILS",bundle);
 //                    startActivity(intent);
@@ -1611,7 +1903,8 @@ public class TakeOder extends AppCompatActivity implements View.OnClickListener,
 
         double price = Double.parseDouble(edtPrice_string);
         double qunatity = Double.parseDouble(edtQuantity_string);
-        double discountedamount = price * 32 / 100;
+        double dsk = Double.parseDouble(editDiscount_string);
+        double discountedamount = price * dsk / 100;
         double actualprice = price - discountedamount;
         double totaldiscount = discountedamount * qunatity;
 
@@ -1670,6 +1963,27 @@ public class TakeOder extends AppCompatActivity implements View.OnClickListener,
 
         salesOrderDetailsListForRecyclerViews = new ArrayList<>();
         listSalesOrderDetailsList_new = new ArrayList<>();
+        discuntamount_total.addTextChangedListener(new TextWatcher() {
+
+            public void afterTextChanged(Editable s) {}
+
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+            }
+
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+                double amt= Double.parseDouble(discuntamount_total.getText().toString());
+
+                double tot= Double.parseDouble(grandtotal_value.getText().toString());
+
+                double balanceamout=tot-amt;
+                grandtotal_value.setText(""+balanceamout);
+
+
+            }
+        });
+
 
 
     }
@@ -1876,6 +2190,7 @@ public class TakeOder extends AppCompatActivity implements View.OnClickListener,
             sumtotaldiscountamount = sumtotaldiscountamount + totaldiscountamount.get(s);
 
         }
+
         String sumtotaldis = String.valueOf(sumtotaldiscountamount);
         total_discount_amount.setText(sumtotaldis);
 

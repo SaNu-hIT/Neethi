@@ -68,38 +68,18 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
 //        holder.lenstype.setText(cycle.getLenstype());
 //        holder.lensstyle.setText(cycle.getLenstype());
 
-        holder.left_d_sph.setText(cycle.getLeft_d_sph());
-        holder.left_d_cyl.setText(cycle.getLeft_d_cyl());
-        holder.left_d_axis.setText(cycle.getLeft_d_axis());
 
-
-        holder.left_d_va.setText(cycle.getLeft_d_va());
-        holder.left_cl_va.setText(cycle.getLeft_cl_va());
-
-
-        holder.left_cl_axis.setText(cycle.getLeft_cl_axis());
-        holder.left_cl_cl.setText(cycle.getLeft_cl_cl());
-
-
-        holder.left_cl_sph.setText(cycle.getLeft_cl_sph());
-        holder.left_add_sph.setText(cycle.getLeft_add_sph());
         holder.left_n_va.setText(cycle.getLeft_n_va());
         holder.left_n_axis.setText(cycle.getLeft_n_axis());
         holder.left_n_sph.setText(cycle.getLeft_n_sph());
         holder.left_n_cyl.setText(cycle.getLeft_n_cyl());
+
+
         holder.right_d_sph.setText(cycle.getRight_d_sph());
         holder.right_d_cyl.setText(cycle.getRight_d_cyl());
         holder.right_d_axis.setText(cycle.getRight_d_axis());
         holder.right_d_va.setText(cycle.getRight_d_va());
-        holder.right_n_sph.setText(cycle.getRight_n_sph());
-        holder.right_n_cyl.setText(cycle.getRight_n_cyl());
-        holder.right_n_axis.setText(cycle.getRight_n_axis());
-        holder.right_n_va.setText(cycle.getRight_n_va());
-        holder.right_add_sph.setText(cycle.getRight_add_sph());
-        holder.right_cl_sph.setText(cycle.getRight_cl_sph());
-        holder.right_cl_cl.setText(cycle.getRight_cl_cl());
-        holder.right_cl_axis.setText(cycle.getRight_cl_axis());
-        holder.right_cl_va.setText(cycle.getRight_cl_va());
+
         holder.close_icons.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -141,8 +121,8 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
                 )
         {
 
-            holder.left_side.setVisibility(View.GONE);
-            holder.right_side.setVisibility(View.GONE);
+//            holder.left_side.setVisibility(View.GONE);
+//            holder.right_side.setVisibility(View.GONE);
             holder.lenslayout.setVisibility(View.GONE);
         }
 
@@ -165,45 +145,28 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
         ImageView close_icons;
         TextView left_d_sph, left_d_cyl, left_d_axis, left_d_va, left_cl_va, left_cl_axis, left_cl_cl, left_cl_sph, left_add_sph, left_n_va, left_n_axis, left_n_cyl, left_n_sph;
         TextView right_d_sph, right_d_cyl, right_d_axis, right_d_va, right_n_sph, right_n_cyl, right_n_axis, right_n_va, right_add_sph, right_cl_sph, right_cl_cl, right_cl_axis, right_cl_va;
-LinearLayout left_side,right_side,productdetails;
+LinearLayout productdetails;
         public ViewHolder(View itemView) {
 
             super(itemView);
 
-            left_side=itemView.findViewById(R.id.left_side);
-            right_side=itemView.findViewById(R.id.right_side);
+//            left_side=itemView.findViewById(R.id.left_side);
+//            right_side=itemView.findViewById(R.id.right_side);
             productdetails=itemView.findViewById(R.id.frame_heading);
             itemname_heading=itemView.findViewById(R.id.itemname_heading);
 
             code = itemView.findViewById(R.id.code);
             ItemName = itemView.findViewById(R.id.ItemName);
             left_n_sph = itemView.findViewById(R.id.left_n_sph);
-            right_cl_axis = itemView.findViewById(R.id.right_cl_axis);
             left_n_cyl = itemView.findViewById(R.id.left_n_cyl);
-            right_cl_cl = itemView.findViewById(R.id.right_cl_cl);
             left_n_axis = itemView.findViewById(R.id.left_n_axis);
-            right_cl_va = itemView.findViewById(R.id.right_cl_va);
-            right_cl_sph = itemView.findViewById(R.id.right_cl_sph);
-            left_add_sph = itemView.findViewById(R.id.left_add_sph);
             left_n_va = itemView.findViewById(R.id.left_n_va);
-            right_n_va = itemView.findViewById(R.id.right_n_va);
-            right_add_sph = itemView.findViewById(R.id.right_add_sph);
-            right_n_cyl = itemView.findViewById(R.id.right_n_cyl);
-            left_cl_sph = itemView.findViewById(R.id.left_cl_sph);
-            right_n_axis = itemView.findViewById(R.id.right_n_axis);
-            left_cl_cl = itemView.findViewById(R.id.left_cl_cl);
 
-            left_d_va = itemView.findViewById(R.id.left_d_va);
-            left_cl_axis = itemView.findViewById(R.id.left_cl_axis);
-            left_cl_va = itemView.findViewById(R.id.left_cl_va);
-            right_n_sph = itemView.findViewById(R.id.right_n_sph);
-            right_d_va = itemView.findViewById(R.id.right_d_va);
             right_d_axis = itemView.findViewById(R.id.right_d_axis);
-            left_d_axis = itemView.findViewById(R.id.left_d_axis);
             right_d_cyl = itemView.findViewById(R.id.right_d_cyl);
-            left_d_cyl = itemView.findViewById(R.id.left_d_cyl);
+            right_d_va = itemView.findViewById(R.id.right_d_va);
             right_d_sph = itemView.findViewById(R.id.right_d_sph);
-            left_d_sph = itemView.findViewById(R.id.left_d_sph);
+
             edtQuantity = itemView.findViewById(R.id.edtQuantity);
             textDiscount = itemView.findViewById(R.id.textDiscount);
             discuntamount = itemView.findViewById(R.id.discuntamount);

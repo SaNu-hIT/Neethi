@@ -7,7 +7,17 @@ import com.google.gson.annotations.SerializedName;
 
 @SuppressWarnings("unused")
 public class ItemsDetails {
+    public String getImage_Url() {
+        return Image_Url;
+    }
 
+    public void setImage_Url(String image_Url) {
+        Image_Url = image_Url;
+    }
+
+    @SerializedName("Image_Url")
+
+    private String Image_Url;
     @SerializedName("Brand")
     private String mBrand;
     @SerializedName("CESS")

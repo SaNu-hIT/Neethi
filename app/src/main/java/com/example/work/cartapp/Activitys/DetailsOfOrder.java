@@ -1,7 +1,9 @@
 package com.example.work.cartapp.Activitys;
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.os.Build;
@@ -17,6 +19,8 @@ import android.print.PrintManager;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,6 +33,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,7 +50,14 @@ import com.example.work.cartapp.Model.ListModel.ParameterListOrder;
 import com.example.work.cartapp.R;
 import com.example.work.cartapp.Extras.SessionManager.SessionManager;
 import com.google.gson.Gson;
+import com.itextpdf.text.BadElementException;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -53,6 +65,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -123,19 +136,50 @@ ImageView backclick;
             }
         });
 
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                DownModel downModel=new DownModel();
+//                downModel.setPageOrientation("landscape");
+//                downModel.setPageSize("a4");
+//                downModel.setType("htmlToPdf");
+//                downModel.setUrl(BASE_URL+"/Order/SInvoice?Invoice_Id="+id_new);
+//                DownLoadDataAndPrint("https://api.sejda.com/v1/tasks",downModel);
+//
+//            }
+//        });
+
+
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DownModel downModel=new DownModel();
-                downModel.setPageOrientation("landscape");
-                downModel.setPageSize("a4");
-                downModel.setType("htmlToPdf");
-                downModel.setUrl(BASE_URL+"/Order/SInvoice?Invoice_Id="+id_new);
-                DownLoadDataAndPrint("https://api.sejda.com/v1/tasks",downModel);
+//                DownModel downModel=new DownModel();
+//                downModel.setPageOrientation("landscape");
+//                downModel.setPageSize("a4");
+//                downModel.setType("htmlToPdf");
+//                downModel.setUrl(BASE_URL+"/Order/SInvoice?Invoice_Id="+id_new);
+//                DownLoadDataAndPrint("https://api.sejda.com/v1/tasks",downModel);
+
+
+progressBar.show();
+
+                int MyVersion = Build.VERSION.SDK_INT;
+                if (MyVersion > Build.VERSION_CODES.LOLLIPOP_MR1) {
+                    if (!checkIfAlreadyhavePermission()) {
+                        requestForSpecificPermission();
+                    }
+                }
+
+
+//   downloadData();
 
             }
         });
+
+
 
         recyclerView=findViewById(R.id.recycerview);
         salesOrderDetail=new ArrayList<>();
@@ -182,6 +226,83 @@ ImageView backclick;
 //            }
 //        });
     }
+    private boolean checkIfAlreadyhavePermission() {
+        int result = ContextCompat.checkSelfPermission(this, Manifest.permission.GET_ACCOUNTS);
+        if (result == PackageManager.PERMISSION_GRANTED) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    private void requestForSpecificPermission() {
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 101);
+    }
+
+
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case 101:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    //granted
+                    downloadData();
+                } else {
+                    //not granted
+                }
+                break;
+            default:
+                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+    }
+    String dirpath;
+
+    public void imageToPDF() throws FileNotFoundException {
+        try {
+            Document document = new Document();
+            dirpath = android.os.Environment.getExternalStorageDirectory().toString();
+            PdfWriter.getInstance(document, new FileOutputStream(dirpath + "/NewPDF.pdf")); //  Change pdf's name.
+            document.open();
+            Image img = Image.getInstance(Environment.getExternalStorageDirectory() + File.separator + "image.jpg");
+            float scaler = ((document.getPageSize().getWidth() - document.leftMargin()
+                    - document.rightMargin() - 0) / img.getWidth()) * 100;
+            img.scalePercent(scaler);
+            img.setAlignment(Image.ALIGN_CENTER | Image.ALIGN_TOP);
+            document.add(img);
+            document.close();
+            Toast.makeText(this, "PDF Generated successfully!..", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+
+        }
+    }
+//    private void downloadPdf() {
+//
+//
+//         View mRootView =findViewById(R.id.jkn);
+//
+////First Check if the external storage is writable
+//        String state = Environment.getExternalStorageState();
+//        if (!Environment.MEDIA_MOUNTED.equals(state)) {
+//            Toast.makeText(this, "Internel Storage", Toast.LENGTH_SHORT).show();
+//        }
+//
+////Create a directory for your PDF
+//        File pdfDir = new File(Environment.getExternalStoragePublicDirectory(
+//                Environment.DIRECTORY_DOCUMENTS), "MyApp");
+//        if (!pdfDir.exists()){
+//            pdfDir.mkdir();
+//        }
+//
+////Then take the screen shot
+//        Bitmap screen; View v1 = mRootView.getRootView();
+//        v1.setDrawingCacheEnabled(true);
+//        screen = Bitmap.createBitmap(v1.getDrawingCache());
+//        v1.setDrawingCacheEnabled(false);
+//
+////Now create the name of your PDF file that you will generate
+//        File pdfFile = new File(pdfDir, "myPdfFile.pdf");
+//    }
 
     private void DownLoadDataAndPrint(String url, DownModel downModel) {
 progressBar.setMessage("Preppairing invoice");
@@ -204,12 +325,77 @@ progressBar.show();
         c.drawColor(getResources().getColor(R.color.colorPrimary));
         lnrh.getChildAt(0).draw(c);
         // Do whatever you want with your bitmap
-        saveBitmap(bitmap);
+        saveBitmap(bitmap,invoice_id.getText().toString());
+//        convertPdf(bitmap);
 
     }
-    public void saveBitmap(Bitmap bitmap) {
+
+//    private void convertPdf(Bitmap bitmap) {
+//
+//        try {
+//            Document  document = new Document();
+//
+//
+//
+//            String path = Environment.getExternalStorageDirectory() + "/" + "MyFirstApp/";
+//// Create the parent path
+//            File dir = new File(path);
+//            if (!dir.exists()) {
+//                dir.mkdirs();
+//            }
+//
+//            String fullName = path + "mylog";
+//            File file = new File (fullName);
+//
+//
+//            PdfWriter.getInstance(document, new FileOutputStream(file));
+//            document.open();
+//            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+//            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+//            byte[] byteArray = stream.toByteArray();
+//            addImage(document,byteArray);
+//            document.close();
+//        }
+//        catch (Exception e){
+//            e.printStackTrace();
+//        }
+//    }
+
+    private static void addImage(Document document,byte[] byteArray)
+    {
+        Image image = null;
+        try
+        {
+            image = Image.getInstance(byteArray);
+        }
+        catch (BadElementException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        catch (MalformedURLException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        catch (IOException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        // image.scaleAbsolute(150f, 150f);
+        try
+        {
+            document.add(image);
+        } catch (DocumentException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    public void saveBitmap(Bitmap bitmap,String invoiceid) {
         File folder = new File(Environment.getExternalStorageDirectory() +
-                File.separator + "SidduInvoices");
+                File.separator + "Neethi");
         boolean success = true;
         if (!folder.exists()) {
             success = folder.mkdirs();
@@ -220,11 +406,11 @@ progressBar.show();
             // Do something else on failure
         }
 
-        File imagePath = new File(Environment.getExternalStorageDirectory() + "/SidduInvoices/Siddus.png");
+        File imagePath = new File(folder + "/Neethi"+invoiceid+".png");
 
         if(imagePath.exists())
         {
-            imagePath=new File(Environment.getExternalStorageDirectory() + "/SidduInvoices/Siddus.png");
+            imagePath=new File(folder + "/Neethi"+invoiceid+".png");
 
         }
         FileOutputStream fos;
@@ -233,13 +419,13 @@ progressBar.show();
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
             fos.flush();
             fos.close();
-//            progressBar.cancel();
+            progressBar.cancel();
 
 
             final File finalImagePath = imagePath;
 
 
-
+            printImge(finalImagePath);
 
 
         } catch (FileNotFoundException e) {
@@ -251,6 +437,42 @@ progressBar.show();
 
 
     }
+
+    private void printImge(File finalImagePath) {
+        Log.e( "printImge: ", ""+finalImagePath);
+
+        File folder = new File(Environment.getExternalStorageDirectory() +
+                File.separator + "Neethi");
+
+        try {
+            Document document=new Document();
+            PdfWriter.getInstance(document,new FileOutputStream(folder + "/Neethi.pdf"));
+
+        document.open();
+        Image image = Image.getInstance (finalImagePath.toString());
+
+            float scaler = ((document.getPageSize().getWidth() - document.leftMargin()
+                    - document.rightMargin() - 0) / image.getWidth()) * 100; // 0 means you have no indentation. If you have any, change it.
+            image.scalePercent(scaler);
+            image.setAlignment(Image.ALIGN_CENTER | Image.ALIGN_TOP);
+            document.add(image);
+        document.close();
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+       File imagePath=new File(folder + "/Neethi.pdf");
+
+
+        showPrintAlert(imagePath);
+    }
+
+
     @Override
     public void OnSuccessListOrderDetails(String message, Data mData) {
 progressBar.cancel();
@@ -474,7 +696,7 @@ progressBar.cancel();
         String jobName = this.getString(R.string.app_name) + " Document";
 
         PrintAttributes attrib = new PrintAttributes.Builder()
-                .setMediaSize(PrintAttributes.MediaSize.ISO_A4.asLandscape())
+                .setMediaSize(PrintAttributes.MediaSize.ISO_A4.asPortrait())
                 . build();
 
         printManager.print(jobName, pda, attrib);

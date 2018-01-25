@@ -34,7 +34,7 @@
                     android:layout_gravity="right|center"
                     android:layout_margin="10dp"
                     android:src="@drawable/edit"
-                    android:visibility="visible" />
+                    android:visibility="invisible" />
 
                 <com.example.work.cartapp.ExternalLib.TextViewRobotoRegular
                     android:layout_width="match_parent"
@@ -420,8 +420,8 @@ android:layout_weight="1"
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:text="D"
-                            android:padding="10dp"
+                            android:text="Right Eye"
+
                             android:textColor="#0d0d0d"
                             android:textSize="14dp"
                         />
@@ -497,391 +497,10 @@ android:layout_weight="1"
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:text="N"
+                            android:text="Left Eye"
                             android:textColor="#0d0d0d"
                             android:textSize="14dp"
                       />
-
-                        <TextView
-                            android:id="@+id/right_n_sph"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:background="@drawable/background_item"
-                            android:textColor="#403e3e"
-
-                            android:textSize="14dp" />
-
-                        <TextView
-                            android:id="@+id/right_n_cyl"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:background="@drawable/background_item"
-                            android:textColor="#403e3e"
-                            android:textSize="14dp" />
-
-                        <TextView
-                            android:id="@+id/right_n_axis"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:background="@drawable/background_item"
-                            android:textColor="#403e3e"
-                            android:textSize="14dp" />
-
-                        <TextView
-                            android:id="@+id/right_n_va"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:background="@drawable/background_item"
-                            android:textColor="#000"
-                            android:textSize="14dp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:padding="1dp"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <com.example.work.cartapp.ExternalLib.AutofitTextViewCustomFont
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="ADD"
-                            android:textColor="#0d0d0d"
-                            android:textSize="14dp" />
-
-                        <TextView
-                            android:id="@+id/right_add_sph"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:background="@drawable/background_item"
-                            android:textColor="#403e3e"
-                            android:textSize="14dp" />
-
-                        <EditText
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:textColor="#000"
-                            android:textSize="16dp"
-                            android:textStyle="bold"
-                            android:visibility="invisible" />
-
-                        <EditText
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:textColor="#000"
-                            android:textSize="16dp"
-                            android:textStyle="bold"
-                            android:visibility="invisible" />
-
-                        <EditText
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:textColor="#000"
-                            android:textSize="16dp"
-                            android:textStyle="bold"
-                            android:visibility="invisible" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="1dp"
-                        android:orientation="horizontal">
-
-                        <com.example.work.cartapp.ExternalLib.AutofitTextViewCustomFont
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="CL"
-                            android:textColor="#0d0d0d"
-                            android:textSize="14dp" />
-
-                        <TextView
-                            android:id="@+id/right_cl_sph"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:layout_weight="1"
-                            android:padding="10dp"
-                            android:background="@drawable/background_item"
-                            android:gravity="center"
-
-                            android:textColor="#403e3e"
-                            android:textSize="14dp" />
-
-                        <TextView
-                            android:id="@+id/right_cl_cl"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:background="@drawable/background_item"
-                            android:textColor="#403e3e"
-                            android:textSize="14dp" />
-
-                        <TextView
-                            android:id="@+id/right_cl_axis"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:background="@drawable/background_item"
-                            android:textColor="#403e3e"
-                            android:textSize="14dp" />
-
-                        <TextView
-                            android:id="@+id/right_cl_va"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:background="@drawable/background_item"
-                            android:textColor="#403e3e"
-                            android:textSize="14dp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:id="@+id/left_side"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:orientation="vertical"
-                    >
-
-                    <com.example.work.cartapp.ExternalLib.TextViewRobotoRegular
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="start"
-                        android:padding="2dp"
-
-                        android:text="Left Side"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="#0d0d0d"
-                        android:textSize="12dp"
-                        />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:gravity="center"
-
-                            android:textSize="14dp" />
-
-                        <com.example.work.cartapp.ExternalLib.AutofitTextViewCustomFont
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="SPH"
-
-                            android:textColor="#0d0d0d"
-                            autofit:minTextSize="10dp"
-                           />
-
-                        <com.example.work.cartapp.ExternalLib.AutofitTextViewCustomFont
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="CYL"
-
-                            android:textColor="#0d0d0d"
-                            autofit:minTextSize="10dp"
-                    />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="AXIS"
-                            android:textColor="#0d0d0d"
-                            android:textSize="14dp"
-                             />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="VA"
-                            autofit:minTextSize="10dp"
-                            android:textColor="#0d0d0d"
-                            android:textSize="14dp"
-                            />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"  android:padding="1dp"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="D"
-                            autofit:minTextSize="10dp"
-                            android:textColor="#0d0d0d"
-                            android:textSize="14dp"
-                             />
-
-                        <TextView
-                            android:id="@+id/left_d_sph"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:background="@drawable/background_item"
-                            android:textColor="#403e3e"
-                            android:textSize="12dp" />
-
-                        <TextView
-                            android:id="@+id/left_d_cyl"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:padding="10dp"
-                            android:background="@drawable/background_item"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:textColor="#403e3e"
-                            android:textSize="14dp" />
-
-                        <TextView
-                            android:id="@+id/left_d_axis"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:background="@drawable/background_item"
-                            android:inputType="numberDecimal"
-                            android:textColor="#403e3e"
-                            android:textSize="14dp" />
-
-                        <TextView
-                            android:id="@+id/left_d_va"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:layout_weight="1"
-                            android:padding="10dp"
-                            android:background="@drawable/background_item"
-                            android:gravity="center"
-                            android:inputType="numberDecimal"
-                            android:textColor="#403e3e"
-                            android:textSize="14dp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"  android:padding="1dp"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="N"
-                            android:textColor="#0d0d0d"
-                            android:textSize="14dp"
-                            autofit:minTextSize="10dp"
-                            />
 
                         <TextView
                             android:id="@+id/left_n_sph"
@@ -906,9 +525,9 @@ android:layout_weight="1"
                             android:layout_marginLeft="4dp"
                             android:layout_marginRight="4dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:padding="10dp"
                             android:background="@drawable/background_item"
-                            android:gravity="center"
                             android:textColor="#403e3e"
                             android:textSize="14dp" />
 
@@ -920,9 +539,9 @@ android:layout_weight="1"
                             android:layout_marginLeft="4dp"
                             android:layout_marginRight="4dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:padding="10dp"
                             android:background="@drawable/background_item"
-                            android:gravity="center"
                             android:textColor="#403e3e"
                             android:textSize="14dp" />
 
@@ -934,157 +553,17 @@ android:layout_weight="1"
                             android:layout_marginLeft="4dp"
                             android:layout_marginRight="4dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:padding="10dp"
                             android:background="@drawable/background_item"
-                            android:gravity="center"
                             android:textColor="#000"
                             android:textSize="14dp" />
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"  android:padding="1dp"
-                        android:orientation="horizontal">
 
-                        <com.example.work.cartapp.ExternalLib.AutofitTextViewCustomFont
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="ADD"
-                            autofit:minTextSize="10dp"
-                            android:textColor="#0d0d0d"
-                            android:textSize="14dp" />
-
-                        <TextView
-                            android:id="@+id/left_add_sph"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:layout_weight="1"
-                            android:padding="10dp"
-                            android:background="@drawable/background_item"
-                            android:gravity="center"
-
-                            android:textColor="#403e3e"
-                            android:textSize="14dp" />
-
-                        <EditText
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:textColor="#000"
-                            android:textSize="16dp"
-                            android:textStyle="bold"
-                            android:visibility="invisible" />
-
-                        <EditText
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:textColor="#000"
-                            android:textSize="16dp"
-                            android:textStyle="bold"
-                            android:visibility="invisible" />
-
-                        <EditText
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:textColor="#000"
-                            android:textSize="16dp"
-                            android:textStyle="bold"
-                            android:visibility="invisible" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"  android:padding="1dp"
-                        android:orientation="horizontal">
-
-                        <com.example.work.cartapp.ExternalLib.AutofitTextViewCustomFont
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="CL"
-                            autofit:minTextSize="10dp"
-                            android:textColor="#0d0d0d"
-                            android:textSize="14dp" />
-
-                        <TextView
-                            android:id="@+id/left_cl_sph"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:background="@drawable/background_item"
-                            android:textColor="#403e3e"
-                            android:textSize="14dp" />
-
-                        <TextView
-                            android:id="@+id/left_cl_cl"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:background="@drawable/background_item"
-                            android:textColor="#403e3e"
-                            android:textSize="14dp" />
-
-                        <TextView
-                            android:id="@+id/left_cl_axis"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:background="@drawable/background_item"
-                            android:textColor="#403e3e"
-                            android:textSize="14dp" />
-
-                        <TextView
-                            android:id="@+id/left_cl_va"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:background="@drawable/background_item"
-                            android:textColor="#403e3e"
-                            android:textSize="14dp" />
-                    </LinearLayout>
                 </LinearLayout>
+
+
 
             </LinearLayout>
         </LinearLayout>
