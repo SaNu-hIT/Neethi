@@ -18,6 +18,8 @@
         android:background="@color/colorPrimary"
         android:minHeight="?attr/actionBarSize">
 
+
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -48,11 +50,19 @@
                 android:id="@+id/ImgLogOut"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_gravity="right"
+                android:layout_gravity="right|center"
                 android:layout_marginRight="20dp"
                 android:foregroundGravity="right"
                 app:srcCompat="@drawable/ic_logout_name" />
+
+
+            <com.miguelcatalan.materialsearchview.MaterialSearchView
+                android:id="@+id/search_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </FrameLayout>
+
+
     </android.support.v7.widget.Toolbar>
 
     <android.support.v4.view.ViewPager
@@ -80,7 +90,7 @@
     android:id="@+id/ordertake"
     android:background="@color/white"
     android:layout_marginBottom="20dp"
-    android:src="@drawable/flotingaicns"
+    android:src="@drawable/add_circular_button"
     android:layout_gravity="bottom|center"/>
 
 

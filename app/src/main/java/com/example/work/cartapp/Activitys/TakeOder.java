@@ -26,6 +26,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.work.cartapp.Adapter.ItemListAdapter;
+import com.example.work.cartapp.Adapter.MyEditTextMarwen;
 import com.example.work.cartapp.Adapter.MyTextViewMarven;
 import com.example.work.cartapp.Connection.HttpRequestForGetListItemByShop;
 import com.example.work.cartapp.Connection.HttpRequestForGetListItemByShopSingle;
@@ -59,12 +60,13 @@ public class TakeOder extends AppCompatActivity implements View.OnClickListener,
     List<String> item_code_list;
     List<String> itemId_list;
     MyTextViewMarven subtotal_total, gst_total, total_discount_amount, grandtotal_value;
+    MyEditTextMarwen discuntamount_total,finalamount;
     Button both, lens, Frame;
     Button btnScan, generateinvoice, btnAddItem;
     ImageView btnAddd;
     TextView tv_ErrorMessage;
     SessionManager sessionManager;
-    EditText left_cl_axis, left_cl_cl, left_cl_sph, left_add_sph, left_n_va, left_n_axis, left_n_cyl, left_n_sph, left_d_va, left_d_axis, left_d_cyl, left_d_sph, right_cl_va, right_cl_axis, right_cl_cl, left_cl_va, right_cl_sph, right_add_sph, right_n_va, right_n_axis, right_d_cyl, right_n_cyl, right_n_sph, right_d_va, right_d_sph, right_d_axis, Gradnd_Total, TotalAmount, CESS_Total, IGST_Total, GST_Total, SGST_Total, discuntamount_total,edtName, CGST_Total, edtPhone, edtQuantity, edtPrice, edtEmail, edtCode, edtProductName, editDiscount;  // lenstype, llenscode
+    EditText left_cl_axis, left_cl_cl, left_cl_sph, left_add_sph, left_n_va, left_n_axis, left_n_cyl, left_n_sph, left_d_va, left_d_axis, left_d_cyl, left_d_sph, right_cl_va, right_cl_axis, right_cl_cl, left_cl_va, right_cl_sph, right_add_sph, right_n_va, right_n_axis, right_d_cyl, right_n_cyl, right_n_sph, right_d_va, right_d_sph, right_d_axis, Gradnd_Total, TotalAmount, CESS_Total, IGST_Total, GST_Total, SGST_Total,edtName, CGST_Total, edtPhone, edtQuantity, edtPrice, edtEmail, edtCode, edtProductName, editDiscount;  // lenstype, llenscode
     private ItemListAdapter categoruAdapter;
     private RecyclerView recyclerView;
     private ProgressDialog progressBar;
@@ -127,7 +129,8 @@ public class TakeOder extends AppCompatActivity implements View.OnClickListener,
         progressBar.setCancelable(false);
         edtName = (EditText) findViewById(R.id.edtName);
         edtPhone = (EditText) findViewById(R.id.edtPhone);
-        discuntamount_total = (EditText) findViewById(R.id.discuntamount_total);
+        discuntamount_total =  findViewById(R.id.discuntamount_total);
+        finalamount =  findViewById(R.id.finalamount);
         edtEmail = (EditText) findViewById(R.id.edtEmail);
         subtotal_total = (MyTextViewMarven) findViewById(R.id.subtotal_total);
         gst_total = (MyTextViewMarven) findViewById(R.id.gst_total);
@@ -177,6 +180,7 @@ public class TakeOder extends AppCompatActivity implements View.OnClickListener,
                 String custname=edtName.getText().toString();
                 String phonenumber=edtPhone.getText().toString();
                 String address=edtEmail.getText().toString();
+                String discuntamount=discuntamount_total.getText().toString();
 
 
                 SalesOrderSummary salesOrderSummary=new SalesOrderSummary();
@@ -186,6 +190,7 @@ public class TakeOder extends AppCompatActivity implements View.OnClickListener,
                 salesOrderSummary.setShopId(shopid);
                 salesOrderSummary.setSoldDate(formattedDate);
                 salesOrderSummary.setSalesOrderId(Long.valueOf(0));
+                salesOrderSummary.setmRound_Off(discuntamount);
 
                 saveDataModel.setSalesOrderDetailsList(listSalesOrderDetailsList_new);
                 saveDataModel.setSalesOrderSummary(salesOrderSummary);
@@ -1779,6 +1784,8 @@ public class TakeOder extends AppCompatActivity implements View.OnClickListener,
 
                 }
                 if (id == R.id.frame) {
+                    progressBar.setMessage("Loading..");
+                    progressBar.show();
                     showDialogOforederFrame();
 //                    Intent intent = new Intent(this, AddFrameActivity.class);
 //                    intent.putExtra("CUSTOMER_DETAILS",bundle);
@@ -1965,7 +1972,29 @@ public class TakeOder extends AppCompatActivity implements View.OnClickListener,
         listSalesOrderDetailsList_new = new ArrayList<>();
         discuntamount_total.addTextChangedListener(new TextWatcher() {
 
-            public void afterTextChanged(Editable s) {}
+            public void afterTextChanged(Editable s) {
+                if(!s.equals(null)) {
+
+
+                    String discount=discuntamount_total.getText().toString();
+                    String total=grandtotal_value.getText().toString();
+
+                    if(discount.equals("")) {
+                        discount="0";
+                    }
+                    if(total.equals("")) {
+                        total="0";
+                    }
+
+
+                    double amt = Double.parseDouble(discount);
+
+                    double tot = Double.parseDouble(total);
+
+                    double balanceamout = tot - amt;
+                    finalamount.setText("" + balanceamout);
+                }
+            }
 
             public void beforeTextChanged(CharSequence s, int start,
                                           int count, int after) {
@@ -1973,12 +2002,9 @@ public class TakeOder extends AppCompatActivity implements View.OnClickListener,
 
             public void onTextChanged(CharSequence s, int start,
                                       int before, int count) {
-                double amt= Double.parseDouble(discuntamount_total.getText().toString());
 
-                double tot= Double.parseDouble(grandtotal_value.getText().toString());
 
-                double balanceamout=tot-amt;
-                grandtotal_value.setText(""+balanceamout);
+
 
 
             }
@@ -2279,8 +2305,8 @@ public class TakeOder extends AppCompatActivity implements View.OnClickListener,
 
     public void setSpinner() {
 
-        progressBar.setMessage("Loading..");
-        progressBar.show();
+//        progressBar.setMessage("Loading..");
+//        progressBar.show();
         Long shopid = sessionManager.getUserId();
         GetListItembyShopmodel getListItembyShopmodel = new GetListItembyShopmodel();
         getListItembyShopmodel.setItemDataId((long) 0);

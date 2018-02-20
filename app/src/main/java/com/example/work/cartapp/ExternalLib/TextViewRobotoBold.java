@@ -27,7 +27,7 @@ public class TextViewRobotoBold extends android.support.v7.widget.AppCompatTextV
 
     private void init() {
         if (!isInEditMode()) {
-            Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/Montserrat-SemiBold.ttf");
+            Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/MavenPro-Regular.ttf");
             setTypeface(tf);
         }
     }

@@ -11,7 +11,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class ApiClient {
-    public static final String BASE_URL="http://neethidemo-001-site1.atempurl.com";
+//    public static final String BASE_URL="http://neethidemo-001-site1.atempurl.com";
+    public static final String BASE_URL="http://neethidemo1-001-site1.itempurl.com";
 //    public static final String BASE_URL="http://saneeshvs-001-site1.itempurl.com";
     public static Retrofit retrofit=null;
     public static Retrofit getClient()

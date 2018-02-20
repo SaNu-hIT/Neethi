@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -31,6 +32,7 @@ import com.example.work.cartapp.R;
 import com.example.work.cartapp.Extras.SessionManager.SessionManager;
 import com.example.work.cartapp.Extras.dummy.DummyContent;
 
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.squareup.otto.Subscribe;
 
 
@@ -68,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements ItemListFragment.
             return false;
         }
     };
+    private Toolbar toolbar;
 
 
     @Subscribe
@@ -75,6 +78,19 @@ public class MainActivity extends AppCompatActivity implements ItemListFragment.
         Toast.makeText(this, "new" + event.getDataa(), Toast.LENGTH_SHORT).show();
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        MenuItem item = menu.findItem(R.id.action_search);
+        this.materialSearchView.setMenuItem(item);
+
+        return true;
+    }
+
+
+    MaterialSearchView materialSearchView;
     Realm realm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +98,14 @@ public class MainActivity extends AppCompatActivity implements ItemListFragment.
         setContentView(R.layout.activity_main);
          realm = Realm.getDefaultInstance();
 
+//        toolbar = (Toolbar) findViewById(R.id.tool_bar);
+//        if (toolbar == null) {
+//            throw new Error("Can't find tool bar, did you forget to add it in Activity layout file?");
+//        }
 
+//        setSupportActionBar(toolbar);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setHomeButtonEnabled(true);
         if (ActivityCompat.checkSelfPermission(this,
                 android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.CAMERA}, 1);
@@ -90,20 +113,55 @@ public class MainActivity extends AppCompatActivity implements ItemListFragment.
             Log.e("DB", "PERMISSION GRANTED");
 
         }
-        sessionManager = new SessionManager(getApplicationContext());
-        Toolbar toolbarTop = (Toolbar) findViewById(R.id.toolbar_top);
-        TextView mTitle = (TextView) toolbarTop.findViewById(R.id.toolbar_title);
-        mTitle.setText(sessionManager.getCompany());
-        ImageView ImgLogOut = (ImageView) toolbarTop.findViewById(R.id.ImgLogOut);
-        ImgLogOut.setOnClickListener(new View.OnClickListener() {
+
+
+           materialSearchView = (MaterialSearchView) findViewById(R.id.search_view);
+        materialSearchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
-            public void onClick(View view) {
-                sessionManager.ClearAll();
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(intent);
-                finish();
+            public boolean onQueryTextSubmit(String query) {
+                //Do some magic
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                //Do some magic
+                return false;
             }
         });
+
+        materialSearchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
+            @Override
+            public void onSearchViewShown() {
+                //Do some magic
+            }
+
+            @Override
+            public void onSearchViewClosed() {
+                //Do some magic
+            }
+        });
+
+        sessionManager = new SessionManager(getApplicationContext());
+
+//        Toolbar toolbarTop = (Toolbar) findViewById(R.id.toolbar_top);
+
+//        TextView mTitle = (TextView) toolbarTop.findViewById(R.id.toolbar_title);
+//        mTitle.setText(sessionManager.getCompany());
+
+
+//        ImageView ImgLogOut = (ImageView) toolbarTop.findViewById(R.id.ImgLogOut);
+//        ImgLogOut.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                sessionManager.ClearAll();
+//                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
+
+
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         MyPagerAdapter pagerAdapter = new MyPagerAdapter(getSupportFragmentManager());
         if (viewPager != null)

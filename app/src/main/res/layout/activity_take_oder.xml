@@ -296,36 +296,7 @@
 
 
 
-                  <LinearLayout
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:layout_marginBottom="5dp"
-                      android:layout_gravity="center"
 
-                      android:orientation="horizontal">
-
-                      <com.example.work.cartapp.Adapter.MyTextViewMarven
-                          android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:layout_weight="1"
-
-                          android:text="Discount :"
-                          android:layout_gravity="right|center"
-                          android:gravity="right|center"
-                          android:textSize="13dp" />
-
-                      <com.example.work.cartapp.Adapter.MyEditTextMarwen
-                          android:id="@+id/discuntamount_total"
-                          android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                       android:layout_gravity="right"
-                          android:gravity="right"
-                          android:layout_weight="1"
-                          android:layout_marginRight="20dp"
-                          android:padding="5dp"
-                          android:inputType="textEmailAddress"
-                          android:textSize="13dp" />
-                  </LinearLayout>
                   <LinearLayout
                       android:layout_width="match_parent"
                       android:orientation="horizontal"    android:layout_margin="5dp"
@@ -349,6 +320,70 @@
                           android:gravity="right"
                           android:textSize="13dp" />
                   </LinearLayout>
+
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginBottom="5dp"
+                      android:layout_gravity="center"
+
+                      android:orientation="horizontal">
+
+                      <com.example.work.cartapp.Adapter.MyTextViewMarven
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+
+                          android:text="Discount :"
+                          android:layout_gravity="right|center"
+                          android:gravity="right|center"
+                          android:textSize="13dp" />
+
+                      <com.example.work.cartapp.Adapter.MyEditTextMarwen
+                          android:id="@+id/discuntamount_total"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="right"
+                          android:gravity="right"
+                          android:layout_weight="1"
+                          android:layout_marginRight="20dp"
+                          android:padding="5dp"
+                          android:inputType="textEmailAddress"
+                          android:textSize="13dp" />
+                  </LinearLayout>
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginBottom="5dp"
+                      android:layout_gravity="center"
+
+                      android:orientation="horizontal">
+
+                      <com.example.work.cartapp.Adapter.MyTextViewMarven
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+
+                          android:text="Amount to be payed :"
+                          android:layout_gravity="right|center"
+                          android:gravity="right|center"
+                          android:textSize="13dp" />
+
+                      <com.example.work.cartapp.Adapter.MyEditTextMarwen
+                          android:id="@+id/finalamount"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="right"
+                          android:gravity="right"
+                          android:layout_weight="1"
+                          android:layout_marginRight="20dp"
+                          android:padding="5dp"
+                          android:inputType="textEmailAddress"
+                          android:textSize="13dp" />
+                  </LinearLayout>
+
+
               </LinearLayout>
 
 

@@ -7,10 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
+import com.bumptech.glide.Glide;
 import com.example.work.cartapp.ExternalLib.AutofitTextViewCustomFont;
 import com.example.work.cartapp.ExternalLib.TextViewRobotoRegular;
 import com.example.work.cartapp.Fragments.OrderListFragemnt.OnListFragmentInteractionListener;
@@ -74,6 +76,9 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
         holder.tvPrice.setText(valueFilterd.get(position).getCustomerPhno());
 //        holder.Customer_Address.setText(mValues.get(position).getSalesOrderDetailsList().);
         holder.tv_Rate.setText("₹ "+valueFilterd.get(position).getTotalOrder());
+//String urlimage=valueFilterd.get(position).getI
+//
+//        Glide.with(mListener).load("http://goo.gl/gEgYUd").into(holder.itemImage);
 
 
 
@@ -91,7 +96,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
 //        public DummyItem mItem;
 
         TextViewRobotoRegular tvTitle;
-
+ImageView itemImage;
         AutofitTextViewCustomFont tvPrice;
         TextViewRobotoRegular datestring;
         AutofitTextViewCustomFont tvCutOff;
@@ -109,6 +114,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
 //            totals = (TextView) view.findViewById(R.id.totals);
             tvTitle = (TextViewRobotoRegular) view.findViewById(R.id.tvTitle);
             tvCutOff = (AutofitTextViewCustomFont) view.findViewById(R.id.tvCutOff);
+            itemImage = (ImageView) view.findViewById(R.id.itemImage);
             tvPrice = (AutofitTextViewCustomFont) view.findViewById(R.id.tvPrice);
             datestring = (TextViewRobotoRegular) view.findViewById(R.id.datestring);
             tv_pOff = (AutofitTextViewCustomFont) view.findViewById(R.id.tv_pOff);

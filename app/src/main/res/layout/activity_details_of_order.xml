@@ -135,12 +135,13 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:textStyle="bold"
+
                                 android:padding="2dp"
                                 android:layout_gravity="center"
                                 android:gravity="start|center"
                                 android:text="Bill To: "
                                 android:textColor="@color/black"
+                                android:textStyle="bold"
                                 android:textSize="10dp" />
 
                             <TextView
@@ -236,8 +237,9 @@
                                 android:layout_weight="1"
                                 android:gravity="right"
                                 android:padding="2dp"
-                                android:text="Invoice No.:"
                                 android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:text="  No :"
                                 android:textSize="10dp"
                                 android:visibility="visible" />
 
@@ -251,6 +253,7 @@
                                 android:gravity="right"
                                 android:padding="2dp"
                                 android:text="Kate L"
+                                android:textStyle="bold"
                                 android:textColor="@color/black"
                                 android:textSize="10dp" />
                         </LinearLayout>
@@ -268,6 +271,7 @@
                                 android:layout_weight="1"
                                 android:gravity="right"
                                 android:padding="2dp"
+                                android:textStyle="bold"
                                 android:text="Date:"
                                 android:textColor="@color/black"
                                 android:textSize="10dp"
@@ -280,6 +284,7 @@
                                 android:layout_gravity="right"
                                 android:layout_marginRight="20dp"
                                 android:layout_weight="1"
+                                android:textStyle="bold"
                                 android:gravity="right"
                                 android:padding="2dp"
                                 android:text="09/9/2019"
@@ -569,7 +574,7 @@
                                 android:layout_weight="1"
                                 android:gravity="right"
                                 android:padding="2dp"
-                                android:text="Discount($):"
+                                android:text="Discount :"
                                 android:textColor="@color/black"
                                 android:textSize="10dp"
                                 android:visibility="visible" />
@@ -592,6 +597,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:visibility="gone"
                         android:orientation="horizontal">
 
                         <LinearLayout
@@ -615,6 +621,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:visibility="gone"
                             android:orientation="horizontal">
 
                             <TextView
@@ -649,6 +656,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:visibility="gone"
                         android:orientation="horizontal">
 
                         <LinearLayout

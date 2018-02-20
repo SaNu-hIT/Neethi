@@ -66,6 +66,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.MalformedURLException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -472,12 +473,27 @@ progressBar.show();
         showPrintAlert(imagePath);
     }
 
+    double roundTwoDecimals(double d)
+    {
+        DecimalFormat twoDForm = new DecimalFormat("#.##");
+        return Double.valueOf(twoDForm.format(d));
+    }
+
 
     @Override
     public void OnSuccessListOrderDetails(String message, Data mData) {
 progressBar.cancel();
         Gson gson = new Gson();
         String json = gson.toJson(mData);
+        double total= Double.parseDouble(mData.getGrandTotalOrder());
+        total=roundTwoDecimals(total);
+        double discounts= Double.parseDouble(mData.getDiscountAmnt());
+        discounts=roundTwoDecimals(discounts);
+
+        double subtotal_fulls= Double.parseDouble(mData.getTotalOrder());
+        subtotal_fulls=roundTwoDecimals(subtotal_fulls);
+
+
 
         Log.e( "mData RESPO: ", ""+json);
         customername.setText(mData.getCustomerName());
@@ -485,16 +501,15 @@ progressBar.cancel();
         phonenumber.setText(mData.getCustomerPhno());
         address.setText(mData.getCustomerAddress());
         date.setText(mData.getSoldDateString());
-        subtotal.setText(mData.getGrandTotalOrder().toString());
-        subtotal_full
-                .setText(mData.getTotalOrder().toString());
+        subtotal.setText(""+total);
+        subtotal_full.setText(""+subtotal_fulls);
 
 
 
 
 
 //        CGST_Total.setText("CGST Total :"+mData.getCGSTTotal().toString());
-        discount.setText(mData.getDiscountAmnt().toString());
+        discount.setText(""+discounts);
         shopaddress.setText(mData.getShopDetails().getAddress());
         shopmobile.setText(mData.getShopDetails().getPhoneNo());
         shopemail.setText(mData.getShopDetails().getEmail());
@@ -566,6 +581,7 @@ progressBar.cancel();
 
     @Override
     public void OnFailedItem(String message) {
+        finish();
         Log.e( "fails: ",""+message );
     }
 

@@ -13,8 +13,24 @@ public class SalesOrderSummary {
     private String mCustomerPhno;
     @SerializedName("Sales_Order_Id")
     private Long mSalesOrderId;
+
+    public String getmRound_Off() {
+        return mRound_Off;
+    }
+
+    public void setmRound_Off(String mRound_Off) {
+        this.mRound_Off = mRound_Off;
+    }
+
     @SerializedName("Shop_Id")
     private String mShopId;
+
+
+
+    @SerializedName("Round_Off")
+    private String mRound_Off;
+
+
     @SerializedName("SoldDate")
     private String mSoldDate;
 

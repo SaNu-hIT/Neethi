@@ -3,14 +3,14 @@ package com.example.work.cartapp.ExternalLib;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
-
 import me.grantland.widget.AutofitTextView;
 
 /**
  * Created by work on 11/8/2017.
  */
 
-public class AutofitTextViewCustomFont extends AutofitTextView {
+public class AutofitTextViewCustomFont extends AutofitTextView
+{
 
     public AutofitTextViewCustomFont(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
